@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function JokeGenerator() {
   const [apiData, setData] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [errorState, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleJokeGenerator = async () => {
@@ -39,8 +39,8 @@ export default function JokeGenerator() {
 
       {loading ? (
         <p>....loading</p>
-      ) : error ? (
-        <p>{error}</p>
+      ) : errorState ? (
+        <p>Error</p>
       ) : (
         <p className="my-4">{apiData}</p>
       )}
